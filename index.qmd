@@ -1,0 +1,182 @@
+---
+title: "Turning Student Voices into Actionable Insights: Using AI to Analyze Survey Comments"
+author: 
+  - name: Xiaojie Li
+    affiliation: Planning & Research Analyst Senior, Paradise Valley Community College
+  - name: Michael Tyler
+    affiliation: Planning & Research Director, Paradise Valley Community College
+project:
+  type: website
+  output-dir: docs
+format: 
+  revealjs:
+    theme: simple      # simple, solarized, serif, etc.
+    transition: slide   # none, fade, slide, convex, concave, zoom
+    slide-number: true
+    incremental: false
+    css: styles.css
+execute: 
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+load('/Users/xia2128737/Library/CloudStorage/GoogleDrive-xia2128737@paradisevalley.edu/Shared drives/PV IE Team/Conferences/2025 Student Success Conference/r project/data.RData')
+```
+
+## Institutional Data
+<br>
+
+::: columns
+::: column
+<div class="data-box quantitative">
+  <div class="box-label">Quantitative</div>
+  <div class="box-content">
+  <ul>
+  <br>
+  **Numbers**
+    <li>How many students are enrolled currently?</li>
+    <li>What's the relationship between FYE courses and retention?</li>
+  </ul>
+  </div>
+</div>
+:::
+
+::: column
+<div class="data-box qualitative">
+  <div class="box-label">Qualitative</div>
+  <div class="box-content">
+  <ul>
+  <br>
+  **Text**
+    <li>How do students perceive their college experiences?</li>
+    <li>Why do students discontinue?</li>
+  </ul>
+  </div>
+</div>
+:::
+:::
+
+## Why Bring AI Into Survey Comment Analysis? 
+::: columns
+::: column
+<br>
+**Shorten the Feedback Cycle**
+
+- Act on feedback faster
+- Collect more feedback, more often
+:::
+
+::: column
+<div style="text-align:center;">
+  <img src="images/cycle.png" width="80%">
+</div>
+:::
+:::
+
+## Example: RNL Survey
+
+- The Ruffalo Noel Levitz (RNL) organization conducts the **Student Satisfaction Inventory (SSI)** survey.
+- It was recently administered at MCCCD in **Spring 2025**.
+- We received **122 open-ended comments** from PVCC students. 
+
+---
+
+### Step 1: Prepare Data
+
+```{r}
+#| echo: false
+#| results: asis
+kable(sample[c(1:3), ]) %>% 
+  kable_styling(font_size = 27)
+```
+
+---
+
+### Step 2: Remove Personally Identifiable Information
+
+```{r}
+#| echo: false
+#| results: asis
+kable(sample_name_masked[c(1:3), ]) %>% 
+  kable_styling(font_size = 27)
+```
+
+---
+
+### Step 3: Write a Prompt 
+<br>
+<span style="font-size:75%; line-height:1.2; display:inline-block;"> "You are analyzing open-ended comments from a student satisfaction survey. <br><br>
+Task 1: **Determine the overall perception** of each comment toward the college. Choose one of the following categories: (a) **positive**, (b) **negative**, (c) **neutral**, or (d) **mixed**. <br><br>
+Task 2: **Identify the topics** mentioned in each comment. Use clear and descriptive labels such as advising, class availability, faculty, etc. Please create new topic labels as needed. List all relevant labels, separated by commas, such as 'advising, class availability'. <br><br>
+Return the results in a **table** with the following three columns: **index**, **perception**, and **labels**."</span>
+
+---
+
+### Step 4: Send the Prompt to ChatGPT
+
+|     | Direct use                                   | Programmatic use                                   |
+|:----------|:-----------------------------------------------------------|:--------------------------------------------------------------|
+| Setup     | Create an account or sign in to [ChatGPT](https://chatgpt.com/) and choose a plan (Free/Plus/Business).     | Create an account or sign in to [OpenAI Platform](https://platform.openai.com/), get an [API key](https://platform.openai.com/api-keys), and [load some credits](https://platform.openai.com/settings/organization/billing/overview)       |
+| How to use| Chat in the web interface or app.  | Make an API call through a script ([sample R code](https://drive.google.com/file/d/1CfDM_oyPJGapFt3dJTWXBJxh7Iua57Ht/view?usp=drive_link)) |
+| Privacy   | Turn off [Improve the model for everyone](https://chatgpt.com/#settings/DataControls) in settings if using a free or Plus plan  | Not used for training models by default |
+| Cost      | Per-user subscription (\$20/month for Plus; \$25 or \$30/month for Business)               | Usage-based  |
+
+---
+
+### Step 5: Review Results
+
+```{r}
+#| echo: false
+#| results: asis
+kable(comments_ai[c(1:3), ]) %>% 
+  kable_styling(font_size = 22)
+```
+
+---
+
+### Repeat Step 3-5 As Needed
+Revise the Prompt for Desired Labeling
+
+<span style="font-size:55%; line-height:1.2; display:inline-block;"> "You are analyzing open-ended comments from a student satisfaction survey. Your task is to code each comment using none, one, or more of the following standardized labels: <br> <br>
+**Campus Climate** – Comments about the general environment or sense of belonging on campus (e.g., feeling cared for, welcomed, respected, or included). <br>
+**Advising** – Comments about academic advising, advisor helpfulness, or access to advisors. <br>
+**Classes/Schedules** – Comments about class offerings, availability, scheduling, or course registration timing. <br>
+**Faculty/Instruction** – Comments about instructors, teaching quality, or classroom experiences. <br>
+**Facilities** – Comments about physical campus resources such as parking lots, gyms, cafeterias, buildings, or classrooms. <br>
+**Academic Program** – Comments about specific academic programs or majors (e.g., Nursing, Music, Education).  <br>
+**Admissions/Registration** – Comments about enrollment, admissions, or registration processes. <br>
+**Other Services** – Comments about campus services other than Advising or Admissions/Registration, such as Veterans Services, Counseling, Athletics, Library, Tutoring, Career Services, Disability Services, or Student Clubs. <br> <br>
+Instructions: Please do not create new labels. If a comment fits multiple labels, include all relevant ones separated by commas, such as 'Campus Climate, Academic Program'. The output should be a table with two columns: index and labels."</span>
+
+---
+
+### Repeat Step 3-5 As Needed
+Check Results Again
+```{r}
+#| echo: false
+#| results: asis
+kable(comments_ai_2[c(1:3), ]) %>% 
+  kable_styling(font_size = 22)
+```
+
+## Activity Step 1: Let's Collect Data
+**What's your experience of and opinions about using AI for text-based tasks at work?**
+Take five minutes to fill out the [Google Form](https://forms.gle/M55SxYV3RkRyHcXR9).
+Write in details but do not include private information. 
+<div style="text-align:center;">
+  <img src="images/qr_survey.png" width="30%">
+</div>
+
+## Activity Step 2: Practice Writing Prompts
+**Write a prompt** in a group or individually using the [survey data](https://docs.google.com/spreadsheets/d/18Mv-oXztQZnYsZ4EHA8ELWV2Yv0azqosW2x5Xf0eVp8/edit?usp=sharing) we just collected to **answer a question** you are curious about. When you’re ready, submit your prompt [here](https://forms.gle/M49SBdDMchE9obUDA).
+<div style="text-align:center;">
+  <img src="images/qr_prompt.png" width="30%">
+</div>
+
+
+
