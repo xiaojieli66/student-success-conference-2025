@@ -32,31 +32,30 @@ load('/Users/xia2128737/Library/CloudStorage/GoogleDrive-xia2128737@paradisevall
 <br>
 
 ::: columns
-::: column
+::: {.column .fragment data-fragment-index="1"}
 <div class="data-box quantitative">
-  <div class="box-label">Quantitative</div>
+  <div class="box-label">Numbers (Quantitative)</div>
   <div class="box-content">
   <ul>
-  <br>
-  **Numbers**
-    <li>How many students are enrolled currently?</li>
-    <li>What's the relationship between FYE courses and retention?</li>
+    <li>How many students are currently enrolled?</li>
+    <li>What's the course success rate?</li>
   </ul>
   </div>
 </div>
 :::
 
-::: column
+::: {.column .fragment data-fragment-index="2"}
 <div class="data-box qualitative">
-  <div class="box-label">Qualitative</div>
+  <div class="box-label">Text (Qualitative)</div>
   <div class="box-content">
   <ul>
-  <br>
-  **Text**
     <li>How do students perceive their college experiences?</li>
-    <li>Why do students discontinue?</li>
+    <li>Why do students drop out?</li>
   </ul>
   </div>
+</div>
+<div class="fragment" style="text-align:center;" data-fragment-index="3">
+  <img src="images/qual_analysis.png" width="60%">
 </div>
 :::
 :::
@@ -83,6 +82,20 @@ load('/Users/xia2128737/Library/CloudStorage/GoogleDrive-xia2128737@paradisevall
 - The Ruffalo Noel Levitz (RNL) organization conducts the **Student Satisfaction Inventory (SSI)** survey.
 - It was recently administered at MCCCD in **Spring 2025**.
 - We received **122 open-ended comments** from PVCC students. 
+
+---
+
+### Step 1: Prepare Data
+
+- Keep the tabular format
+- Remove all other columns
+- Assign index
+
+| index | comment |
+|:------|:--------|
+|   1   |XXXXXXXXX|
+|   2   |XXXXXXXXX|
+|   3   |XXXXXXXXX|
 
 ---
 
@@ -121,8 +134,8 @@ Return the results in a **table** with the following three columns: **index**, *
 
 |     | Direct use                                   | Programmatic use                                   |
 |:----------|:-----------------------------------------------------------|:--------------------------------------------------------------|
-| Setup     | Create an account or sign in to [ChatGPT](https://chatgpt.com/) and choose a plan (Free/Plus/Business).     | Create an account or sign in to [OpenAI Platform](https://platform.openai.com/), get an [API key](https://platform.openai.com/api-keys), and [load some credits](https://platform.openai.com/settings/organization/billing/overview)       |
 | How to use| Chat in the web interface or app.  | Make an API call through a script ([sample R code](https://drive.google.com/file/d/1CfDM_oyPJGapFt3dJTWXBJxh7Iua57Ht/view?usp=drive_link)) |
+| Setup     | Create an account or sign in to [ChatGPT](https://chatgpt.com/) and choose a plan (Free/Plus/Business).     | Create an account or sign in to [OpenAI Platform](https://platform.openai.com/), get an [API key](https://platform.openai.com/api-keys), and [load some credits](https://platform.openai.com/settings/organization/billing/overview)       |
 | Privacy   | Turn off [Improve the model for everyone](https://chatgpt.com/#settings/DataControls) in settings if using a free or Plus plan  | Not used for training models by default |
 | Cost      | Per-user subscription (\$20/month for Plus; \$25 or \$30/month for Business)               | Usage-based  |
 

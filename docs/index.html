@@ -157,39 +157,40 @@ Michael Tyler
 <h2>Institutional Data</h2>
 <p><br></p>
 <div class="columns">
-<div class="column">
+<div class="column fragment" data-fragment-index="1">
 <div class="data-box quantitative">
 <div class="box-label">
-Quantitative
+Numbers (Quantitative)
 </div>
 <div class="box-content">
 <ul>
-<br> <strong>Numbers</strong>
 <li>
-How many students are enrolled currently?
+How many students are currently enrolled?
 </li>
 <li>
-What’s the relationship between FYE courses and retention?
+What’s the course success rate?
 </li>
 </ul>
 </div>
 </div>
-</div><div class="column">
+</div><div class="column fragment" data-fragment-index="2">
 <div class="data-box qualitative">
 <div class="box-label">
-Qualitative
+Text (Qualitative)
 </div>
 <div class="box-content">
 <ul>
-<br> <strong>Text</strong>
 <li>
 How do students perceive their college experiences?
 </li>
 <li>
-Why do students discontinue?
+Why do students drop out?
 </li>
 </ul>
 </div>
+</div>
+<div class="fragment" style="text-align:center;" data-fragment-index="3">
+<p><img src="images/qual_analysis.png" width="60%"></p>
 </div>
 </div></div>
 </section>
@@ -219,6 +220,37 @@ Why do students discontinue?
 <section class="slide level2">
 
 <h3 id="step-1-prepare-data">Step 1: Prepare Data</h3>
+<ul>
+<li>Keep the tabular format</li>
+<li>Remove all other columns</li>
+<li>Assign index</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">index</th>
+<th style="text-align: left;">comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">XXXXXXXXX</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">XXXXXXXXX</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">XXXXXXXXX</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<h3 id="step-1-prepare-data-1">Step 1: Prepare Data</h3>
 <table class="table caption-top" data-quarto-postprocess="true" style="font-size: 27px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr class="header">
@@ -290,14 +322,14 @@ Why do students discontinue?
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Setup</td>
-<td style="text-align: left;">Create an account or sign in to <a href="https://chatgpt.com/">ChatGPT</a> and choose a plan (Free/Plus/Business).</td>
-<td style="text-align: left;">Create an account or sign in to <a href="https://platform.openai.com/">OpenAI Platform</a>, get an <a href="https://platform.openai.com/api-keys">API key</a>, and <a href="https://platform.openai.com/settings/organization/billing/overview">load some credits</a></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">How to use</td>
 <td style="text-align: left;">Chat in the web interface or app.</td>
 <td style="text-align: left;">Make an API call through a script (<a href="https://drive.google.com/file/d/1CfDM_oyPJGapFt3dJTWXBJxh7Iua57Ht/view?usp=drive_link">sample R code</a>)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Setup</td>
+<td style="text-align: left;">Create an account or sign in to <a href="https://chatgpt.com/">ChatGPT</a> and choose a plan (Free/Plus/Business).</td>
+<td style="text-align: left;">Create an account or sign in to <a href="https://platform.openai.com/">OpenAI Platform</a>, get an <a href="https://platform.openai.com/api-keys">API key</a>, and <a href="https://platform.openai.com/settings/organization/billing/overview">load some credits</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Privacy</td>
