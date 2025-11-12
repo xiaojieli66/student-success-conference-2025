@@ -177,7 +177,13 @@ kable(comments_ai_2[c(1:3), ]) %>%
   kable_styling(font_size = 22)
 ```
 
-# Questions
+---
+
+<div style="text-align:center;">
+  <img src="images/questions.png" width="50%">
+</div>
+
+---
 
 ## Activity Step 1: Let's Collect Data
 **What's your experience of and opinions about using AI for text-based tasks at work?**
