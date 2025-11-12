@@ -10,8 +10,8 @@ project:
   output-dir: docs
 format: 
   revealjs:
-    theme: simple      # simple, solarized, serif, etc.
-    transition: slide   # none, fade, slide, convex, concave, zoom
+    theme: simple 
+    transition: slide
     slide-number: true
     incremental: false
     css: styles.css
@@ -176,6 +176,8 @@ Check Results Again
 kable(comments_ai_2[c(1:3), ]) %>% 
   kable_styling(font_size = 22)
 ```
+
+# Questions
 
 ## Activity Step 1: Let's Collect Data
 **What's your experience of and opinions about using AI for text-based tasks at work?**
