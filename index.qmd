@@ -12,8 +12,6 @@ format:
   revealjs:
     theme: simple 
     transition: slide
-    slide-number: true
-    incremental: false
     css: styles.css
 execute: 
   warning: false
@@ -134,8 +132,8 @@ Return the results in a **table** with the following three columns: **index**, *
 
 |     | Direct use                                   | Programmatic use                                   |
 |:----------|:-----------------------------------------------------------|:--------------------------------------------------------------|
-| How to use| Chat in the web interface or app.  | Make an API call through a script ([sample R code](https://drive.google.com/file/d/1CfDM_oyPJGapFt3dJTWXBJxh7Iua57Ht/view?usp=drive_link)) |
-| Setup     | Create an account or sign in to [ChatGPT](https://chatgpt.com/) and choose a plan (Free/Plus/Business).     | Create an account or sign in to [OpenAI Platform](https://platform.openai.com/), get an [API key](https://platform.openai.com/api-keys), and [load some credits](https://platform.openai.com/settings/organization/billing/overview)       |
+| How to use| Chat in the web interface or app  | Make an API call through a script ([sample R code](https://github.com/xiaojieli66/student-success-conference-2025)) |
+| Setup     | Create an account or sign in to [ChatGPT](https://chatgpt.com/) and choose a plan (Free/Plus/Business)     | Create an account or sign in to [OpenAI Platform](https://platform.openai.com/), get an [API key](https://platform.openai.com/api-keys), and [load some credits](https://platform.openai.com/settings/organization/billing/overview)       |
 | Privacy   | Turn off [Improve the model for everyone](https://chatgpt.com/#settings/DataControls) in settings if using a free or Plus plan  | Not used for training models by default |
 | Cost      | Per-user subscription (\$20/month for Plus; \$25 or \$30/month for Business)               | Usage-based  |
 
